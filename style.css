@@ -6,6 +6,10 @@ Description: Tema WordPress responsif untuk BIMTEKHUB dengan sidebar otomatis be
 Version: 1.1
 */
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,6 +22,9 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -71,6 +78,7 @@ body {
     align-items: stretch; /* Ensure all children have equal height */
     margin-top: 20px; /* Add margin to separate from header */
     padding-top: 100px; /* Tambahkan padding atas untuk menghindari tumpang tindih */
+    flex: 1;
 }
 
 .content-area {
@@ -98,6 +106,7 @@ body {
     color: #fff;
     padding: 20px;
     text-align: center;
+    margin-top: auto; /* Pastikan footer tetap di bawah */
 }
 
 .footer-columns {
@@ -201,10 +210,11 @@ body {
 .menu {
     display: flex; /* Ensure menu is visible on desktop */
     flex-direction: row; /* Horizontal layout for desktop */
-    background: #0073aa;
+    background: rgba(0, 0, 0, 0.8); /* Ubah transparansi background menjadi warna hitam */
     padding: 10px;
     position: relative; /* For positioning dropdowns */
     margin-top: 20px; /* Tambahkan margin atas */
+    border-radius: 10px; /* Tambahkan border-radius */
 }
 
 .menu > li {
@@ -257,7 +267,7 @@ body {
 
 .menu-toggle {
     display: none;
-    background: #0073aa;
+    background: #000; /* Ubah background menjadi warna hitam */
     color: #fff;
     border: none;
     padding: 10px;

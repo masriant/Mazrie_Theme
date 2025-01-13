@@ -15,18 +15,40 @@
                     <?php echo tag_description(); ?>
                 </div>
             <?php endif; ?>
-            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                <article class="post">
-                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <div class="post-excerpt">
-                        <?php the_excerpt(); ?>
-                    </div>
-                </article>
-            <?php endwhile; else : ?>
+            <?php if (have_posts()) : ?>
+                <div class="list-group">
+                    <?php while (have_posts()) : the_post(); ?>
+                        <a href="<?php the_permalink(); ?>" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1" style="color: #0073aa;"><?php the_title(); ?></h5>
+                                <small><?php the_time('F j, Y'); ?></small>
+                            </div>
+                            <p class="mb-1" style="color: #333;"><?php the_excerpt(); ?></p>
+                            <small><?php the_author(); ?></small>
+                        </a>
+                    <?php endwhile; ?>
+                </div>
+            <?php else : ?>
                 <p>No posts found with this tag.</p>
             <?php endif; ?>
             <div class="pagination">
-                <?php echo paginate_links(); ?>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <?php
+                        $pagination_links = paginate_links(array(
+                            'type' => 'array',
+                            'prev_text' => 'Previous',
+                            'next_text' => 'Next',
+                        ));
+                        if ($pagination_links) {
+                            foreach ($pagination_links as $link) {
+                                $active_class = strpos($link, 'current') !== false ? ' active' : '';
+                                echo '<li class="page-item' . $active_class . '">' . str_replace('page-numbers', 'page-link', $link) . '</li>';
+                            }
+                        }
+                        ?>
+                    </ul>
+                </nav>
             </div>
         </main>
         

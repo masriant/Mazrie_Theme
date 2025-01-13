@@ -276,7 +276,7 @@ function bimtekhub_customize_register($wp_customize) {
 
     // Add Header and Menu Position Type Setting
     $wp_customize->add_setting('bimtekhub_header_menu_position_type', array(
-        'default' => 'static',
+        'default' => 'Sticky',
         'sanitize_callback' => 'sanitize_text_field',
     ));
 
@@ -395,10 +395,10 @@ function bimtekhub_customizer_css() {
         }
         .header,
         .menu {
-            position: <?php echo get_theme_mod('bimtekhub_header_menu_position_type', 'static'); ?>;
+            position: <?php echo get_theme_mod('bimtekhub_header_menu_position_type', 'Sticky'); ?>;
             top: 0;
             width: 100%;
-            z-index: 1000;
+            z-index: 1020;
         }
         .header.fixed {
             position: fixed;
