@@ -1,9 +1,61 @@
 /*
-Theme Name  : Mazrie Theme
-Theme URI   : https://wordpress.org/themes/twentytwentyfive/
-Description : Default Twenty Twenty-Five theme
-Author      : Masrianto
-Author URI  : https://masrianto.com
-Template    : twentytwentyfive
-Version     : 1.0
+Theme Name: BIMTEKHUB Theme
+Theme URI: https://bimtekhub.com
+Author: Masrianto
+Author URI: https://bimtekhub.com
+Description: Tema WordPress untuk BIMTEKHUB dengan layout 3 kolom seperti LinkedIn.
+Version: 1.0
 */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header, .footer {
+    background: #0073aa;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 25%;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.content-area {
+    width: 50%;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.footer-columns {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    background: #006699;
+    color: #fff;
+    padding: 20px;
+}
