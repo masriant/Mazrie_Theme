@@ -25,6 +25,35 @@ body {
     color: #fff;
     padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px; /* Tambahkan padding atas */
+}
+
+.header.align-left {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header.align-right {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-title,
+.header-description {
+    text-align: center;
+}
+
+.header.align-left .header-title,
+.header.align-left .header-description {
+    text-align: left;
+}
+
+.header.align-right .header-title,
+.header.align-right .header-description {
+    text-align: right;
 }
 
 .main-content {
@@ -166,6 +195,7 @@ body {
     background: #0073aa;
     padding: 10px;
     position: relative; /* For positioning dropdowns */
+    margin-top: 20px; /* Tambahkan margin atas */
 }
 
 .menu > li {
@@ -176,8 +206,10 @@ body {
 .menu > li > a {
     color: #fff;
     text-decoration: none; /* Ensure no underline */
-    padding: 10px 20px;
+    padding: 3px 8px; /* Kurangi padding */
     display: block;
+    margin-right: 3px; /* Kurangi margin */
+    border-radius: 5px; /* Tambahkan border radius */
 }
 
 .menu > li:hover > a {
