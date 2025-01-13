@@ -76,8 +76,10 @@
                     </ul>
                 </nav>
             </div>
-            <?php get_template_part('trending'); ?>
-            <?php get_template_part('popular'); ?>
+            <div class="additional-content">
+                <?php get_template_part('popular'); ?>
+                <?php get_template_part('trending'); ?>
+            </div>
         </main>
         
         <?php if (is_active_sidebar('sidebar-right')) : ?>

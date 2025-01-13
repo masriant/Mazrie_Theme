@@ -101,6 +101,10 @@ body {
     border-radius: 5px; /* Add border radius */
 }
 
+.additional-content {
+    margin-top: 20px;
+}
+
 .footer {
     background: #006699;
     color: #fff;
