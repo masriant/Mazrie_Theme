@@ -18,14 +18,28 @@ function bimtekhub_enqueue_assets() {
 }
 add_action('wp_enqueue_scripts', 'bimtekhub_enqueue_assets');
 
+// Fungsi untuk mendaftarkan sidebar
 function bimtekhub_sidebars() {
     register_sidebar(array(
         'name' => 'Left Sidebar',
         'id' => 'sidebar-left',
+        'description' => 'Sidebar kiri untuk tema BIMTEKHUB',
+        'before_widget' => '<div class="widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
     ));
+
     register_sidebar(array(
         'name' => 'Right Sidebar',
         'id' => 'sidebar-right',
+        'description' => 'Sidebar kanan untuk tema BIMTEKHUB',
+        'before_widget' => '<div class="widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
     ));
 }
 add_action('widgets_init', 'bimtekhub_sidebars');
+
+

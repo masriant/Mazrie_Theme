@@ -8,11 +8,9 @@ jQuery(document).ready(function ($) {
         $(this).addClass('active');
         $('#' + tabId).addClass('active');
     });
-});
 
-
-jQuery(document).ready(function ($) {
     $('.menu-toggle').click(function () {
         $('.menu').toggleClass('active');
     });
 });
+

@@ -1,25 +1,34 @@
 <?php get_header(); ?>
 
-<div class="main-content">
-    <aside class="sidebar">
-        <?php get_sidebar('left'); ?>
-    </aside>
-    <main class="content-area">
-        <h2>Populer</h2>
-        <?php // Query untuk menampilkan post populer ?>
-        <h2>Trending</h2>
-        <?php // Query untuk menampilkan post trending ?>
-        <h2>Terbaru</h2>
-        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <article>
-                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                <p><?php the_excerpt(); ?></p>
-            </article>
-        <?php endwhile; endif; ?>
-    </main>
-    <aside class="sidebar">
-        <?php get_sidebar('right'); ?>
-    </aside>
+<div class="container">
+    <div class="main-content">
+        <!-- Konten Utama -->
+        <main class="content-area">
+            <h2>Terbaru</h2>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                <article class="post">
+                    <h3><a href="<?php echo esc_url(get_permalink()); ?>"><?php the_title(); ?></a></h3>
+                    <p><?php the_excerpt(); ?></p>
+                </article>
+            <?php endwhile; else : ?>
+                <p>Belum ada postingan.</p>
+            <?php endif; ?>
+        </main>
+
+        <!-- Sidebar Kiri -->
+        <?php if (is_active_sidebar('sidebar-left')) : ?>
+        <aside class="sidebar sidebar-left">
+            <?php get_sidebar('left'); ?>
+        </aside>
+        <?php endif; ?>
+
+        <!-- Sidebar Kanan -->
+        <?php if (is_active_sidebar('sidebar-right')) : ?>
+        <aside class="sidebar sidebar-right">
+            <?php get_sidebar('right'); ?>
+        </aside>
+        <?php endif; ?>
+    </div>
 </div>
 
 <?php get_footer(); ?>

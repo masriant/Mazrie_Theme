@@ -140,7 +140,6 @@ nav a:hover {
     }
 }
 
-
 .footer-columns {
     display: flex;
     gap: 20px;
@@ -163,3 +162,89 @@ nav a:hover {
         width: 100%;
     }
 }
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Pastikan aturan diterapkan ke elemen <a> di dalam .menu */
+.menu a {
+    text-decoration: none !important; /* Paksa menghilangkan garis bawah */
+    color: #ffffff; /* Ubah warna teks menu (opsional) */
+    padding: 10px 15px; /* Spasi sekitar teks */
+    display: inline-block; /* Pastikan area klik mencakup seluruh tautan */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transisi efek */
+}
+/* Target elemen menu navigasi */
+.menu a, 
+.menu li a {
+    text-decoration: none !important; /* Hilangkan garis bawah */
+    color: #ffffff !important; /* Warna teks putih */
+    padding: 10px 15px; /* Jarak untuk klik area */
+    display: inline-block; /* Pastikan tampil rapi */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Animasi transisi */
+}
+
+/* Hover pada menu */
+.menu a:hover, 
+.menu li a:hover {
+    color: #0073aa !important; /* Warna teks saat hover */
+    background-color: #ffffff; /* Latar belakang saat hover */
+    text-decoration: none !important; /* Pastikan tetap tanpa garis bawah */
+}
+
+.sidebar-left {
+    order: 2; /* Sidebar kiri akan berada di bawah konten pada layar kecil */
+}
+
+.sidebar-right {
+    order: 3; /* Sidebar kanan akan berada di bawah sidebar kiri pada layar kecil */
+}
+
+/* Media Queries untuk Responsivitas */
+
+/* Tablet (768px ke bawah) */
+@media (max-width: 768px) {
+    .content-area {
+        flex: 1 1 100%; /* Konten utama mengambil 100% layar */
+        order: 1; /* Konten tetap di urutan pertama */
+    }
+
+    .sidebar-left {
+        flex: 1 1 100%; /* Sidebar kiri mengambil 100% layar */
+        order: 2; /* Tampil di bawah konten */
+    }
+
+    .sidebar-right {
+        flex: 1 1 100%; /* Sidebar kanan mengambil 100% layar */
+        order: 3; /* Tampil di bawah sidebar kiri */
+    }
+}
+
+/* Ponsel (480px ke bawah) */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .main-content {
+        flex-direction: column; /* Semua elemen satu kolom */
+    }
+
+    .content-area,
+    .sidebar {
+        flex: 1 1 100%; /* Semua elemen mengambil 100% layar */
+    }
+}
+
