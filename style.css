@@ -29,6 +29,14 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 40px; /* Tambahkan padding atas */
+    margin-bottom: 20px; /* Tambahkan margin bawah */
+}
+
+.header.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .header.align-left {
@@ -62,6 +70,7 @@ body {
     gap: 20px;
     align-items: stretch; /* Ensure all children have equal height */
     margin-top: 20px; /* Add margin to separate from header */
+    padding-top: 100px; /* Tambahkan padding atas untuk menghindari tumpang tindih */
 }
 
 .content-area {

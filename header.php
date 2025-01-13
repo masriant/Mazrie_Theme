@@ -9,7 +9,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<header class="header <?php echo 'align-' . get_theme_mod('bimtekhub_header_title_position', 'left'); ?>">
+<header class="header <?php echo 'align-' . get_theme_mod('bimtekhub_header_title_position', 'left') . ' ' . (get_theme_mod('bimtekhub_header_menu_position_type', 'static') === 'fixed' ? 'fixed' : ''); ?>">
     <?php if (get_theme_mod('bimtekhub_menu_position', 'below') === 'above') : ?>
         <?php get_template_part('menu'); ?>
     <?php endif; ?>

@@ -314,6 +314,30 @@ function bimtekhub_customize_register($wp_customize) {
         'section' => 'bimtekhub_header',
         'settings' => 'bimtekhub_header_background_image',
     )));
+
+    // Add Header Background Height Setting
+    $wp_customize->add_setting('bimtekhub_header_background_height', array(
+        'default' => '300px',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('bimtekhub_header_background_height', array(
+        'label' => __('Header Background Height', 'bimtekhub-theme'),
+        'section' => 'bimtekhub_header',
+        'type' => 'text',
+    ));
+
+    // Add Header Content Margin Setting
+    $wp_customize->add_setting('bimtekhub_header_content_margin', array(
+        'default' => '20px',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('bimtekhub_header_content_margin', array(
+        'label' => __('Header Content Margin', 'bimtekhub-theme'),
+        'section' => 'bimtekhub_header',
+        'type' => 'text',
+    ));
 }
 add_action('customize_register', 'bimtekhub_customize_register');
 
@@ -376,15 +400,22 @@ function bimtekhub_customizer_css() {
             width: 100%;
             z-index: 1000;
         }
+        .header.fixed {
+            position: fixed;
+        }
         .header {
             background-image: url('<?php echo get_theme_mod('bimtekhub_header_background_image', ''); ?>');
             background-size: cover;
             background-position: center;
+            height: <?php echo get_theme_mod('bimtekhub_header_background_height', '300px'); ?>;
         }
         .header-content img {
             display: <?php echo get_theme_mod('bimtekhub_header_image', '') ? 'block' : 'none'; ?>;
             max-width: 100%;
             height: auto;
+        }
+        .main-content {
+            padding-top: <?php echo get_theme_mod('bimtekhub_header_content_margin', '20px'); ?>;
         }
     </style>
     <?php
