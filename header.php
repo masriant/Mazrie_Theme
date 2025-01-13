@@ -7,14 +7,19 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <header class="header">
-        <h1><?php bloginfo('name'); ?></h1>
-        <p><?php bloginfo('description'); ?></p>
-        <?php
-        wp_nav_menu(array(
-            'theme_location' => 'header-menu',
-            'container' => 'nav',
-        ));
-        ?>
-    </header>
+<header class="header">
+    <h1><?php bloginfo('name'); ?></h1>
+    <p><?php bloginfo('description'); ?></p>
+    <button class="menu-toggle">☰ Menu</button>
+<nav class="menu">
+    <?php
+    wp_nav_menu(array(
+        'theme_location' => 'header-menu',
+        'container' => false,
+    ));
+    ?>
+</nav>
+
+</header>
+
     <div class="container">

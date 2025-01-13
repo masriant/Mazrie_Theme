@@ -9,3 +9,10 @@ jQuery(document).ready(function ($) {
         $('#' + tabId).addClass('active');
     });
 });
+
+
+jQuery(document).ready(function ($) {
+    $('.menu-toggle').click(function () {
+        $('.menu').toggleClass('active');
+    });
+});
