@@ -42,4 +42,53 @@ function bimtekhub_sidebars() {
 }
 add_action('widgets_init', 'bimtekhub_sidebars');
 
+function bimtekhub_footer_widgets() {
+    register_sidebar(array(
+        'name' => 'Footer Column 1',
+        'id' => 'footer-column-1',
+        'description' => 'Widget area for footer column 1',
+        'before_widget' => '<div class="footer-widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+    ));
+    register_sidebar(array(
+        'name' => 'Footer Column 2',
+        'id' => 'footer-column-2',
+        'description' => 'Widget area for footer column 2',
+        'before_widget' => '<div class="footer-widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+    ));
+    register_sidebar(array(
+        'name' => 'Footer Column 3',
+        'id' => 'footer-column-3',
+        'description' => 'Widget area for footer column 3',
+        'before_widget' => '<div class="footer-widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+    ));
+    register_sidebar(array(
+        'name' => 'Footer Column 4',
+        'id' => 'footer-column-4',
+        'description' => 'Widget area for footer column 4',
+        'before_widget' => '<div class="footer-widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+     ));
+    register_sidebar(array(
+        'name' => 'Footer Credit',
+        'id' => 'footer-credit',
+        'description' => 'Widget area for footer credit',
+        'before_widget' => '<div class="footer-credit-widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+    ));
+}
+add_action('widgets_init', 'bimtekhub_footer_widgets');
+
 
