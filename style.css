@@ -25,6 +25,9 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 .header {
@@ -89,6 +92,8 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 5px; /* Add border radius */
+    width: 70%; /* Tambahkan ukuran width dari 60% menjadi 70% */
+    margin-bottom: 20px;
 }
 
 .sidebar {
@@ -99,10 +104,34 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 5px; /* Add border radius */
+    width: 25%; /* Kurangi ukuran width dari 30% menjadi 25% */
+    margin-bottom: 20px;
 }
 
 .additional-content {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 20px;
+    border: 5px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.col-md-6 {
+    flex: 1 1 50%;
+    box-sizing: border-box;
 }
 
 .footer {
@@ -279,12 +308,49 @@ body {
     cursor: pointer;
 }
 
+.list-group-item {
+    position: relative;
+    z-index: 1;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background: #0073aa;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    z-index: 1000; /* Pastikan tombol back to top berada di atas elemen lainnya */
+}
+
+.back-to-top:hover {
+    background: #005f8d;
+}
+
+.popular-trending {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.popular-posts,
+.trending-posts {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
 /* Media Queries untuk Responsivitas */
 
 /* Tablet (768px ke bawah) */
 @media (max-width: 768px) {
     .content-area, .sidebar {
         flex: 1 1 100%; /* Konten dan sidebar mengambil 100% layar */
+        width: 100%;
     }
 
     .footer-column {
@@ -312,6 +378,16 @@ body {
         position: static;
         width: 100%;
     }
+
+    .popular-trending .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .popular-posts,
+    .trending-posts {
+        width: 100%;
+    }
 }
 
 /* Ponsel (480px ke bawah) */
@@ -332,4 +408,13 @@ body {
     .container {
         padding: 10px;
     }
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: #0073aa;
+    color: white;
+    padding: 20px 0;
+    margin-top: 20px;
 }

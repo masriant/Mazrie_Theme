@@ -2,12 +2,14 @@
 
 <div class="container">
     <div class="main-content">
+        <!-- Sidebar Left -->
         <?php if (is_active_sidebar('sidebar-left')) : ?>
-        <aside class="sidebar">
-            <?php get_sidebar('left'); ?>
-        </aside>
+            <aside class="sidebar">
+                <?php get_sidebar('left'); ?>
+            </aside>
         <?php endif; ?>
         
+        <!-- Main Content Area -->
         <main class="content-area">
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <article>
@@ -57,37 +59,16 @@
             <?php endwhile; else : ?>
                 <p>No posts found.</p>
             <?php endif; ?>
-            <div class="pagination">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <?php
-                        $pagination_links = paginate_links(array(
-                            'type' => 'array',
-                            'prev_text' => 'Previous',
-                            'next_text' => 'Next',
-                        ));
-                        if ($pagination_links) {
-                            foreach ($pagination_links as $link) {
-                                $active_class = strpos($link, 'current') !== false ? ' active' : '';
-                                echo '<li class="page-item' . $active_class . '">' . str_replace('page-numbers', 'page-link', $link) . '</li>';
-                            }
-                        }
-                        ?>
-                    </ul>
-                </nav>
-            </div>
-            <div class="additional-content">
-                <?php get_template_part('popular'); ?>
-                <?php get_template_part('trending'); ?>
-            </div>
         </main>
         
+        <!-- Sidebar Right -->
         <?php if (is_active_sidebar('sidebar-right')) : ?>
-        <aside class="sidebar">
-            <?php get_sidebar('right'); ?>
-        </aside>
+            <aside class="sidebar">
+                <?php get_sidebar('right'); ?>
+            </aside>
         <?php endif; ?>
     </div>
 </div>
 
+<!-- Footer -->
 <?php get_footer(); ?>
