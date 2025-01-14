@@ -8,10 +8,12 @@
     <title><?php wp_title('|', true, 'right'); ?> <?php bloginfo('name'); ?></title>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(get_theme_mod('bimtekhub_sidebar_layout', 'left-content-right')); ?>>
 <header class="header <?php echo 'align-' . get_theme_mod('bimtekhub_header_title_position', 'left') . ' ' . (get_theme_mod('bimtekhub_header_menu_position_type', 'static') === 'fixed' ? 'fixed' : ''); ?>">
     <?php if (get_theme_mod('bimtekhub_menu_position', 'below') === 'above') : ?>
-        <?php get_template_part('menu'); ?>
+        <nav class="main-navigation">
+            <?php get_template_part('menu'); ?>
+        </nav>
     <?php endif; ?>
     <?php if (get_theme_mod('bimtekhub_header_title_visibility', 'on')) : ?>
         <div class="header-content">
@@ -24,7 +26,9 @@
         </div>
     <?php endif; ?>
     <?php if (get_theme_mod('bimtekhub_menu_position', 'below') === 'below') : ?>
-        <?php get_template_part('menu'); ?>
+        <nav class="main-navigation">
+            <?php get_template_part('menu'); ?>
+        </nav>
     <?php endif; ?>
     <button class="menu-toggle">☰ Menu</button>
 </header>

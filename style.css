@@ -6,7 +6,8 @@ Description: Tema WordPress responsif untuk BIMTEKHUB dengan sidebar otomatis be
 Version: 1.1
 */
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -16,6 +17,13 @@ body {
     padding: 0;
     background: #f9f9f9;
     color: #333;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+    /* Remove bullets and numbers from ul, ol, and li */
 }
 
 .container {
@@ -38,8 +46,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 40px; /* Tambahkan padding atas */
-    margin-bottom: 20px; /* Tambahkan margin bawah */
+    padding-top: 40px;
+    /* Tambahkan padding atas */
+    margin-bottom: 20px;
+    /* Tambahkan margin bawah */
 }
 
 .header.fixed {
@@ -76,35 +86,47 @@ body {
 
 .main-content {
     display: flex;
-    flex-wrap: wrap; /* Agar elemen otomatis berpindah di layar kecil */
+    flex-wrap: wrap;
+    /* Agar elemen otomatis berpindah di layar kecil */
     gap: 20px;
-    align-items: stretch; /* Ensure all children have equal height */
-    margin-top: 20px; /* Add margin to separate from header */
-    padding-top: 100px; /* Tambahkan padding atas untuk menghindari tumpang tindih */
+    align-items: stretch;
+    /* Ensure all children have equal height */
+    margin-top: 20px;
+    /* Add margin to separate from header */
+    padding-top: 100px;
+    /* Tambahkan padding atas untuk menghindari tumpang tindih */
     flex: 1;
 }
 
 .content-area {
-    flex: 1 1 60%; /* Konten utama mengambil 60% layar */
+    flex: 1 1 60%;
+    /* Konten utama mengambil 60% layar */
     background: #fff;
     padding: 20px;
-    border: 5px solid #ddd; /* Add 5px border */
+    border: 5px solid #ddd;
+    /* Add 5px border */
     display: flex;
     flex-direction: column;
-    border-radius: 5px; /* Add border radius */
-    width: 70%; /* Tambahkan ukuran width dari 60% menjadi 70% */
+    border-radius: 5px;
+    /* Add border radius */
+    width: 70%;
+    /* Tambahkan ukuran width dari 60% menjadi 70% */
     margin-bottom: 20px;
 }
 
 .sidebar {
-    flex: 1 1 30%; /* Sidebar mengambil 30% layar */
+    flex: 1 1 30%;
+    /* Sidebar mengambil 30% layar */
     background: #fff;
     padding: 20px;
-    border: 5px solid #ddd; /* Add 5px border */
+    border: 5px solid #ddd;
+    /* Add 5px border */
     display: flex;
     flex-direction: column;
-    border-radius: 5px; /* Add border radius */
-    width: 25%; /* Kurangi ukuran width dari 30% menjadi 25% */
+    border-radius: 5px;
+    /* Add border radius */
+    width: 25%;
+    /* Kurangi ukuran width dari 30% menjadi 25% */
     margin-bottom: 20px;
 }
 
@@ -139,7 +161,8 @@ body {
     color: #fff;
     padding: 20px;
     text-align: center;
-    margin-top: auto; /* Pastikan footer tetap di bawah */
+    margin-top: auto;
+    /* Pastikan footer tetap di bawah */
 }
 
 .footer-columns {
@@ -149,7 +172,8 @@ body {
 }
 
 .footer-column {
-    flex: 1 1 25%; /* Footer kolom mengambil 25% layar */
+    flex: 1 1 25%;
+    /* Footer kolom mengambil 25% layar */
     background: #005f8d;
     color: #fff;
     padding: 20px;
@@ -158,19 +182,23 @@ body {
 
 .footer-widget {
     margin-bottom: 20px;
-    text-align: center; /* Default alignment */
+    text-align: center;
+    /* Default alignment */
 }
 
 .footer-widget.align-left {
-    text-align: left; /* Left alignment */
+    text-align: left;
+    /* Left alignment */
 }
 
 .footer-widget.align-right {
-    text-align: right; /* Right alignment */
+    text-align: right;
+    /* Right alignment */
 }
 
 .footer-widget.align-center {
-    text-align: center; /* Center alignment */
+    text-align: center;
+    /* Center alignment */
 }
 
 .footer-widget h3 {
@@ -180,8 +208,10 @@ body {
 .footer-widget a,
 .footer-widget ul,
 .footer-widget li {
-    text-decoration: none; /* Remove underline from footer widget links */
-    color: inherit; /* Inherit color from parent */
+    text-decoration: none;
+    /* Remove underline from footer widget links */
+    color: inherit;
+    /* Inherit color from parent */
 }
 
 .footer-menu {
@@ -225,82 +255,138 @@ body {
 
 .footer-credit-widget {
     flex: 1;
-    text-align: center; /* Default alignment */
+    text-align: center;
+    /* Default alignment */
 }
 
 .footer-credit-widget.align-left {
-    text-align: left; /* Left alignment */
+    text-align: left;
+    /* Left alignment */
 }
 
 .footer-credit-widget.align-right {
-    text-align: right; /* Right alignment */
+    text-align: right;
+    /* Right alignment */
 }
 
 .footer-credit-widget.align-center {
-    text-align: center; /* Center alignment */
+    text-align: center;
+    /* Center alignment */
 }
 
 .menu {
-    display: flex; /* Ensure menu is visible on desktop */
-    flex-direction: row; /* Horizontal layout for desktop */
-    background: rgba(0, 0, 0, 0.8); /* Ubah transparansi background menjadi warna hitam */
-    padding: 10px;
-    position: relative; /* For positioning dropdowns */
-    margin-top: 20px; /* Tambahkan margin atas */
-    border-radius: 10px; /* Tambahkan border-radius */
+    display: flex;
+    /* Ensure menu is visible on desktop */
+    flex-direction: row;
+    background: rgba(0, 0, 0, 0.5);
+    /* Ubah transparansi background menjadi warna hitam */
+    padding: 5px;
+    /* Reduce padding */
+    position: relative;
+    /* For positioning dropdowns */
+    margin-top: 10px;
+    /* Reduce margin */
+    border-radius: 10px;
+    /* Tambahkan border-radius */
+    justify-content: flex-start;
+    /* Align menu items to the left */
 }
 
-.menu > li {
-    position: relative; /* For positioning dropdowns */
+.menu>li {
+    position: relative;
+    /* For positioning dropdowns */
     list-style: none;
 }
 
-.menu > li > a {
+.menu>li>a {
     color: #fff;
-    text-decoration: none; /* Ensure no underline */
-    padding: 3px 8px; /* Kurangi padding */
+    text-decoration: none;
+    /* Ensure no underline */
+    padding: 3px 5px;
+    /* Reduce padding */
     display: block;
-    margin-right: 3px; /* Kurangi margin */
-    border-radius: 5px; /* Tambahkan border radius */
+    margin-right: 3px;
+    /* Kurangi margin */
+    border-radius: 5px;
+    /* Tambahkan border radius */
 }
 
-.menu > li:hover > a {
-    background: #005f8d; /* Change background on hover */
+.menu>li>a.active,
+.menu>li>a:active,
+.submenu>li>a.active,
+.submenu>li>a:active {
+    background: #ff6600;
+    /* Change background color for active link */
+    color: #fff !important;
+    /* Ensure text color is white */
 }
 
-.menu > li > .submenu {
-    display: none; /* Hide submenu by default */
+.menu>li:hover>a {
+    background: #005f8d;
+    /* Change background on hover */
+}
+
+.menu>li>.submenu {
+    display: none;
+    /* Hide submenu by default */
     position: absolute;
     top: 100%;
     left: 0;
-    background: #0073aa;
-    padding: 10px;
-    width: 200px; /* Adjust width as needed */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    /* Reduce padding */
+    width: 180px;
+    /* Adjust width as needed */
     z-index: 1000;
+    text-align: left;
+    border-radius: 5px;
+    /* Add border radius to submenu background */
 }
 
-.menu > li:hover > .submenu {
-    display: block; /* Show submenu on hover */
-}
-
-.submenu > li {
-    list-style: none;
-}
-
-.submenu > li > a {
-    color: #fff;
-    text-decoration: none; /* Ensure no underline */
-    padding: 10px;
+.menu>li:hover>.submenu {
     display: block;
+    /* Show submenu on hover */
 }
 
-.submenu > li > a:hover {
-    background: #005f8d; /* Change background on hover */
+/* Ensure submenu items are hidden by default */
+.submenu>li {
+    display: block;
+    /* Ensure submenu items are displayed */
+}
+
+.menu>li:hover>.submenu>li {
+    display: block;
+    /* Show submenu items on hover */
+}
+
+.submenu>li>a {
+    color: #fff;
+    text-decoration: none;
+    /* Ensure no underline */
+    padding: 5px;
+    /* Reduce padding */
+    display: block;
+    border-radius: 5px;
+    /* Add border radius */
+}
+
+.submenu>li>a.active,
+.submenu>li>a:active {
+    background: #ff6600;
+    /* Change background color for active submenu link */
+    color: #fff;
+    /* Ensure text color is white */
+}
+
+.submenu>li>a:hover {
+    background: #005f8d;
+    /* Change background on hover */
 }
 
 .menu-toggle {
     display: none;
-    background: #000; /* Ubah background menjadi warna hitam */
+    background: #000;
+    /* Ubah background menjadi warna hitam */
     color: #fff;
     border: none;
     padding: 10px;
@@ -318,17 +404,19 @@ body {
     bottom: 20px;
     right: 20px;
     display: none;
-    background: #0073aa;
+    background: rgba(0, 0, 0, 0.3);
+    /* Change background to 30% black */
     color: #fff;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
-    z-index: 1000; /* Pastikan tombol back to top berada di atas elemen lainnya */
+    z-index: 1000;
+    /* Pastikan tombol back to top berada di atas elemen lainnya */
 }
 
 .back-to-top:hover {
-    background: #005f8d;
+    background: #ec2f3f;
 }
 
 .popular-trending {
@@ -344,17 +432,33 @@ body {
     border: 1px solid #ddd;
 }
 
+.main-navigation {
+    text-align: right;
+    /* Adjust alignment as needed */
+    font-size: 16px;
+    /* Adjust font size as needed */
+}
+
+.main-navigation .menu-item {
+    margin-right: 10px;
+    /* Adjust spacing as needed */
+}
+
 /* Media Queries untuk Responsivitas */
 
 /* Tablet (768px ke bawah) */
 @media (max-width: 768px) {
-    .content-area, .sidebar {
-        flex: 1 1 100%; /* Konten dan sidebar mengambil 100% layar */
+
+    .content-area,
+    .sidebar {
+        flex: 1 1 100%;
+        /* Konten dan sidebar mengambil 100% layar */
         width: 100%;
     }
 
     .footer-column {
-        flex: 1 1 50%; /* Footer kolom mengambil 50% layar */
+        flex: 1 1 50%;
+        /* Footer kolom mengambil 50% layar */
     }
 
     .menu-toggle {
@@ -362,7 +466,8 @@ body {
     }
 
     .menu {
-        display: none; /* Hide menu on smaller screens */
+        display: none;
+        /* Hide menu on smaller screens */
         flex-direction: column;
     }
 
@@ -370,11 +475,11 @@ body {
         display: flex;
     }
 
-    .menu > li {
+    .menu>li {
         width: 100%;
     }
 
-    .menu > li > .submenu {
+    .menu>li>.submenu {
         position: static;
         width: 100%;
     }
@@ -397,12 +502,15 @@ body {
         padding: 10px;
     }
 
-    .content-area, .sidebar {
-        flex: 1 1 100%; /* Semua elemen satu kolom */
+    .content-area,
+    .sidebar {
+        flex: 1 1 100%;
+        /* Semua elemen satu kolom */
     }
 
     .footer-column {
-        flex: 1 1 100%; /* Footer kolom satu baris */
+        flex: 1 1 100%;
+        /* Footer kolom satu baris */
     }
 
     .container {
@@ -417,4 +525,71 @@ footer {
     color: white;
     padding: 20px 0;
     margin-top: 20px;
+}
+
+/* Additional CSS for different sidebar layouts */
+
+.left-content-right .main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-content-right .content-area {
+    order: 2;
+    flex: 1 1 60%;
+}
+
+.left-content-right .sidebar-left {
+    order: 1;
+    flex: 1 1 20%;
+}
+
+.left-content-right .sidebar-right {
+    order: 3;
+    flex: 1 1 20%;
+}
+
+.content-left .main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-left .content-area {
+    order: 1;
+    flex: 1 1 80%;
+}
+
+.content-left .sidebar-left {
+    order: 2;
+    flex: 1 1 20%;
+}
+
+.content-right .main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-right .content-area {
+    order: 1;
+    flex: 1 1 80%;
+}
+
+.content-right .sidebar-right {
+    order: 2;
+    flex: 1 1 20%;
+}
+
+.fullwidth .main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.fullwidth .content-area {
+    order: 1;
+    flex: 1 1 100%;
+}
+
+.fullwidth .sidebar-left,
+.fullwidth .sidebar-right {
+    display: none;
 }

@@ -103,17 +103,35 @@ nav a:hover {
 }
 
 .menu {
-    display: none;
-    flex-direction: column;
-    background: #0073aa;
-    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    background: rgba(0, 0, 0, 0.5);
+    /* Change background to transparent */
+    padding: 5px;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 10px;
+    justify-content: flex-start;
+    /* Align menu items to the left */
 }
 
 .menu a {
     color: #fff;
     text-decoration: none;
-    padding: 10px;
-    border-bottom: 1px solid #005f8d;
+    padding: 3px 5px;
+    display: block;
+    margin-right: 3px;
+    border-radius: 5px;
+}
+
+.menu a.active,
+.menu a:active {
+    background: #003f66;
+    color: #fff;
+}
+
+.menu a:hover {
+    background: #005f8d;
 }
 
 .menu-toggle {
@@ -180,36 +198,47 @@ body {
 
 /* Pastikan aturan diterapkan ke elemen <a> di dalam .menu */
 .menu a {
-    text-decoration: none !important; /* Paksa menghilangkan garis bawah */
-    color: #ffffff; /* Ubah warna teks menu (opsional) */
-    padding: 10px 15px; /* Spasi sekitar teks */
-    display: inline-block; /* Pastikan area klik mencakup seluruh tautan */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Transisi efek */
+    text-decoration: none !important;
+    color: #ffffff;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
+
 /* Target elemen menu navigasi */
-.menu a, 
+.menu a,
 .menu li a {
-    text-decoration: none !important; /* Hilangkan garis bawah */
-    color: #ffffff !important; /* Warna teks putih */
-    padding: 10px 15px; /* Jarak untuk klik area */
-    display: inline-block; /* Pastikan tampil rapi */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Animasi transisi */
+    text-decoration: none !important;
+    color: #ffffff !important;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 /* Hover pada menu */
-.menu a:hover, 
+.menu a:hover,
 .menu li a:hover {
-    color: #0073aa !important; /* Warna teks saat hover */
-    background-color: #ffffff; /* Latar belakang saat hover */
-    text-decoration: none !important; /* Pastikan tetap tanpa garis bawah */
+    color: #0073aa !important;
+    background-color: #ffffff;
+    text-decoration: none !important;
+}
+
+.menu a.active,
+.menu a:active,
+.submenu a.active,
+.submenu a:active {
+    background: #ff6600;
+    /* Change background color for active link */
+    color: #fff !important;
+    /* Ensure text color is white */
 }
 
 .sidebar-left {
-    order: 2; /* Sidebar kiri akan berada di bawah konten pada layar kecil */
+    order: 2;
 }
 
 .sidebar-right {
-    order: 3; /* Sidebar kanan akan berada di bawah sidebar kiri pada layar kecil */
+    order: 3;
 }
 
 /* Media Queries untuk Responsivitas */
@@ -217,18 +246,18 @@ body {
 /* Tablet (768px ke bawah) */
 @media (max-width: 768px) {
     .content-area {
-        flex: 1 1 100%; /* Konten utama mengambil 100% layar */
-        order: 1; /* Konten tetap di urutan pertama */
+        flex: 1 1 100%;
+        order: 1;
     }
 
     .sidebar-left {
-        flex: 1 1 100%; /* Sidebar kiri mengambil 100% layar */
-        order: 2; /* Tampil di bawah konten */
+        flex: 1 1 100%;
+        order: 2;
     }
 
     .sidebar-right {
-        flex: 1 1 100%; /* Sidebar kanan mengambil 100% layar */
-        order: 3; /* Tampil di bawah sidebar kiri */
+        flex: 1 1 100%;
+        order: 3;
     }
 }
 
@@ -239,12 +268,87 @@ body {
     }
 
     .main-content {
-        flex-direction: column; /* Semua elemen satu kolom */
+        flex-direction: column;
     }
 
     .content-area,
     .sidebar {
-        flex: 1 1 100%; /* Semua elemen mengambil 100% layar */
+        flex: 1 1 100%;
     }
 }
 
+/* Ensure submenu items are hidden by default */
+.menu>li>.submenu {
+    display: none;
+    /* Hide submenu by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Change background to transparent */
+    padding: 5px;
+    /* Reduce padding */
+    width: 180px;
+    /* Adjust width as needed */
+    z-index: 1000;
+    text-align: left;
+    /* Align submenu items to the left */
+    border-radius: 5px;
+    /* Add border radius to submenu background */
+}
+
+.menu>li:hover>.submenu {
+    display: block;
+    /* Show submenu on hover */
+}
+
+/* Ensure submenu items are hidden by default */
+.submenu>li {
+    display: block;
+    /* Ensure submenu items are displayed */
+}
+
+.menu>li:hover>.submenu>li {
+    display: block;
+    /* Show submenu items on hover */
+}
+
+.submenu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    display: block;
+    border-radius: 5px;
+    /* Add border radius */
+}
+
+.submenu a.active,
+.submenu a:active {
+    background: #ff6600;
+    /* Change background color for active link */
+    color: #fff;
+    /* Ensure text color is white */
+}
+
+.submenu a:hover {
+    background: #005f8d;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background: rgba(0, 0, 0, 0.3);
+    /* Change background to 30% black */
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    background: #ec2f3f;
+}

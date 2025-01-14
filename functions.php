@@ -338,6 +338,30 @@ function bimtekhub_customize_register($wp_customize) {
         'section' => 'bimtekhub_header',
         'type' => 'text',
     ));
+
+    // Add Sidebar Layout Section
+    $wp_customize->add_section('bimtekhub_sidebar_layout', array(
+        'title' => __('Sidebar Layout', 'bimtekhub-theme'),
+        'priority' => 40,
+    ));
+
+    // Add Sidebar Layout Setting
+    $wp_customize->add_setting('bimtekhub_sidebar_layout', array(
+        'default' => 'left-content-right',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('bimtekhub_sidebar_layout', array(
+        'label' => __('Sidebar Layout', 'bimtekhub-theme'),
+        'section' => 'bimtekhub_sidebar_layout',
+        'type' => 'select',
+        'choices' => array(
+            'left-content-right' => 'Sidebar Kiri - Konten - Sidebar Kanan',
+            'content-left' => 'Konten - Sidebar Kiri',
+            'content-right' => 'Konten - Sidebar Kanan',
+            'fullwidth' => 'Konten (Fullwidth)',
+        ),
+    ));
 }
 add_action('customize_register', 'bimtekhub_customize_register');
 
@@ -470,5 +494,63 @@ if (!function_exists('bimtekhub_theme_setup')) {
     }
 }
 add_action('after_setup_theme', 'bimtekhub_theme_setup');
+
+class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n$indent<ul class=\"submenu\">\n";
+    }
+}
+
+// Add meta box for sidebar layout
+function bimtekhub_add_sidebar_layout_meta_box() {
+    add_meta_box(
+        'bimtekhub_sidebar_layout_meta_box',
+        __('Sidebar Layout', 'bimtekhub-theme'),
+        'bimtekhub_sidebar_layout_meta_box_callback',
+        array('post', 'page'),
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'bimtekhub_add_sidebar_layout_meta_box');
+
+// Meta box callback function
+function bimtekhub_sidebar_layout_meta_box_callback($post) {
+    $sidebar_layout = get_post_meta($post->ID, '_bimtekhub_sidebar_layout', true);
+    ?>
+    <label for="bimtekhub_sidebar_layout"><?php _e('Select Sidebar Layout:', 'bimtekhub-theme'); ?></label>
+    <select name="bimtekhub_sidebar_layout" id="bimtekhub_sidebar_layout" class="postbox">
+        <option value="fullwidth" <?php selected($sidebar_layout, 'fullwidth'); ?>><?php _e('Default (Fullwidth)', 'bimtekhub-theme'); ?></option>
+        <option value="content-right" <?php selected($sidebar_layout, 'content-right'); ?>><?php _e('Content - Sidebar Right', 'bimtekhub-theme'); ?></option>
+        <option value="content-left" <?php selected($sidebar_layout, 'content-left'); ?>><?php _e('Content - Sidebar Left', 'bimtekhub-theme'); ?></option>
+        <option value="left-content-right" <?php selected($sidebar_layout, 'left-content-right'); ?>><?php _e('Sidebar Left - Content - Sidebar Right', 'bimtekhub-theme'); ?></option>
+    </select>
+    <?php
+}
+
+// Save meta box data
+function bimtekhub_save_sidebar_layout_meta_box_data($post_id) {
+    if (array_key_exists('bimtekhub_sidebar_layout', $_POST)) {
+        update_post_meta(
+            $post_id,
+            '_bimtekhub_sidebar_layout',
+            $_POST['bimtekhub_sidebar_layout']
+        );
+    }
+}
+add_action('save_post', 'bimtekhub_save_sidebar_layout_meta_box_data');
+
+// Add body class based on sidebar layout
+function bimtekhub_add_sidebar_layout_body_class($classes) {
+    if (is_singular('post') || is_singular('page')) {
+        $sidebar_layout = get_post_meta(get_the_ID(), '_bimtekhub_sidebar_layout', true);
+        if ($sidebar_layout) {
+            $classes[] = $sidebar_layout;
+        }
+    }
+    return $classes;
+}
+add_filter('body_class', 'bimtekhub_add_sidebar_layout_body_class');
 
 

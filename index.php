@@ -1,3 +1,10 @@
+<?php
+if (!defined('ABSPATH')) {
+    define('ABSPATH', dirname(__FILE__) . '/');
+}
+require_once(ABSPATH . 'wp-load.php'); ?>
+<?php require_once(ABSPATH . 'wp-blog-header.php'); ?>
+<?php require_once(ABSPATH . 'wp-includes/general-template.php'); ?>
 <?php get_header(); ?>
 
 <div class="container">
